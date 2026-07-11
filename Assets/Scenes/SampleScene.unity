@@ -565,7 +565,7 @@ Animator:
   m_GameObject: {fileID: 797334705}
   m_Enabled: 1
   m_Avatar: {fileID: 0}
-  m_Controller: {fileID: 0}
+  m_Controller: {fileID: 9100000, guid: 89912291378085346bf5556b3f789d58, type: 2}
   m_CullingMode: 0
   m_UpdateMode: 0
   m_ApplyRootMotion: 0
@@ -787,6 +787,8 @@ MonoBehaviour:
   dineroPorVictoria: 100
   dineroPorDerrota: 50
   probabilidadDeGanar: 100
+  resultadoAnimator: {fileID: 797334707}
+  jugarButton: {fileID: 1678226618}
 --- !u!4 &977095566
 Transform:
   m_ObjectHideFlags: 0
