@@ -18,8 +18,9 @@ public class GameResult : MonoBehaviour
     [Range(0, 100)]
     public int probabilidadDeGanar = 50;
 
-    private int dinero;
+    public int dinero;
     public Animator resultadoAnimator;
+    public RescueSystem rescueSystem;
 
     [Header("Botón")]
     public Button jugarButton;
@@ -46,55 +47,38 @@ public class GameResult : MonoBehaviour
         if (numero < probabilidadDeGanar)
         {
             resultadoAnimator.Play("Ganar", 0, 0f);
-            Invoke(nameof(FinalizarVictoria), 1.5f);
+            Invoke(nameof(FinalizarVictoria), 1f);
         }
         else
         {
             resultadoAnimator.Play("Perder", 0, 0f);
-            Invoke(nameof(FinalizarDerrota), 1.5f);
+            Invoke(nameof(FinalizarDerrota), 1f);
         }
     }
-    void ActualizarDinero()
+    public void ActualizarDinero()
     {
-        dineroTexto.text = "Dinero: " + dinero.ToString("000");
+        dineroTexto.text = "Dinero: " + dinero;
+
+        if (rescueSystem != null)
+            rescueSystem.RevisarAyuda();
     }
     void FinalizarVictoria()
     {
         dinero += dineroPorVictoria;
-
         resultadoTexto.text = "¡Ganaste!";
-        ActualizarDinero();
-
         jugarButton.interactable = true;
         jugando = false;
+        ActualizarDinero();
     }
 
     void FinalizarDerrota()
     {
         dinero -= dineroPorDerrota;
-
         resultadoTexto.text = "Perdiste";
-        ActualizarDinero();
-
+        rescueSystem.RevisarAyuda();
         jugarButton.interactable = true;
         jugando = false;
+        ActualizarDinero(); 
     }
-    public void FinAnimacion()
-    {
-        if (gano)
-        {
-            dinero += dineroPorVictoria;
-            resultadoTexto.text = "¡Ganaste!";
-        }
-        else
-        {
-            dinero -= dineroPorDerrota;
-            resultadoTexto.text = "Perdiste";
-        }
-
-        ActualizarDinero();
-
-        jugarButton.interactable = true;
-        jugando = false;
-    }
+    
 }
