@@ -1,6 +1,6 @@
 using System;
 using TMPro;
-using Unity.AppUI.Redux;
+
 using UnityEngine;
 using UnityEngine.UI; // Usamos esto para el componente Image
 
@@ -26,6 +26,7 @@ public class RescueSystem : MonoBehaviour
     public Image visorImagen; // El componente UI que mostrará la imagen en pantalla
     public GameObject panelImagen; // El panel UI que contiene la imagen y el botón de cerrar
     public Animator animator;
+    public Animator FaceCamAnimator;
 
     void Start()
     {
@@ -120,9 +121,6 @@ public class RescueSystem : MonoBehaviour
 
     void UsarAyuda(int indice)
     {
-        if (indice != ayudaActual)
-            return;
-
         gameResult.dinero += dineroAyuda[indice];
 
         gameResult.ActualizarDinero();
@@ -140,6 +138,17 @@ public class RescueSystem : MonoBehaviour
 
         ayudaActual++;
 
+        if (ayudaActual == 5)
+        {
+            FaceCamAnimator.SetInteger("animation", 1);
+        }
+
         Debug.Log(ayudaActual);
+
+
+    }
+    public int ObtenerAyudaActual()
+    {
+        return ayudaActual;
     }
 }

@@ -2,7 +2,6 @@ using UnityEngine;
 using TMPro;
 using UnityEngine.UI;
 
-
 public class GameResult : MonoBehaviour
 {
     [Header("Referencias UI")]
@@ -16,7 +15,7 @@ public class GameResult : MonoBehaviour
 
     [Header("Probabilidades")]
     [Range(0, 100)]
-    public int probabilidadDeGanar = 50;
+    public int probabilidadDeGanar = 100; // ¡Cambiado para que inicie en 100!
 
     public int dinero;
     public Animator resultadoAnimator;
@@ -26,7 +25,7 @@ public class GameResult : MonoBehaviour
     public Button jugarButton;
 
     private bool jugando = false;
-    private bool gano = false;
+    // private bool gano = false; // (Nota: Tienes esta variable declarada pero no la usas)
 
     void Start()
     {
@@ -34,6 +33,7 @@ public class GameResult : MonoBehaviour
         ActualizarDinero();
         resultadoTexto.text = "";
     }
+
     public void Jugar()
     {
         if (jugando)
@@ -42,6 +42,7 @@ public class GameResult : MonoBehaviour
         jugando = true;
         jugarButton.interactable = false;
 
+        // Se decide el resultado usando la probabilidad actual ANTES de restarla
         int numero = Random.Range(0, 100);
 
         if (numero < probabilidadDeGanar)
@@ -54,7 +55,20 @@ public class GameResult : MonoBehaviour
             resultadoAnimator.Play("Perder", 0, 0f);
             Invoke(nameof(FinalizarDerrota), 3f);
         }
+
+        // --- NUEVO CÓDIGO ---
+        // Restamos 10% para la siguiente jugada
+        probabilidadDeGanar -= 10;
+
+        // Nos aseguramos de que no baje de 0%
+        if (probabilidadDeGanar < 0)
+        {
+            probabilidadDeGanar = 0;
+        }
+
+        Debug.Log("Probabilidad de ganar para la próxima ronda: " + probabilidadDeGanar + "%");
     }
+
     public void ActualizarDinero()
     {
         dineroTexto.text = "Dinero: " + dinero;
@@ -62,6 +76,7 @@ public class GameResult : MonoBehaviour
         /*if (rescueSystem != null)
             rescueSystem.RevisarAyuda();*/
     }
+
     void FinalizarVictoria()
     {
         dinero += dineroPorVictoria;
@@ -79,7 +94,6 @@ public class GameResult : MonoBehaviour
         rescueSystem.RevisarAyudaDelay();
         jugarButton.interactable = true;
         jugando = false;
-        //ActualizarDinero(); 
+        ActualizarDinero();
     }
-    
 }
