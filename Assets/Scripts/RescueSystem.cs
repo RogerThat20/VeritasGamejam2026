@@ -89,6 +89,7 @@ public class RescueSystem : MonoBehaviour
 
             // reproducimos la animacion
             //animator.Play();
+            animator.StartPlayback();
         }
     }
 
