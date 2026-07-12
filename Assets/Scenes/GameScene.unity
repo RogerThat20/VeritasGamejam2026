@@ -349,8 +349,8 @@ GameObject:
   serializedVersion: 6
   m_Component:
   - component: {fileID: 154350352}
-  - component: {fileID: 154350351}
   - component: {fileID: 154350353}
+  - component: {fileID: 154350354}
   m_Layer: 0
   m_Name: RE
   m_TagString: Untagged
@@ -358,38 +358,6 @@ GameObject:
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
   m_IsActive: 1
---- !u!114 &154350351
-MonoBehaviour:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 154350350}
-  m_Enabled: 1
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: 5a720b9bd7dd2234ea7c7ed2753979dc, type: 3}
-  m_Name: 
-  m_EditorClassIdentifier: Assembly-CSharp::RescueSystem
-  botonesAyuda:
-  - {fileID: 780587926}
-  - {fileID: 1701774793}
-  - {fileID: 1555937769}
-  - {fileID: 1257244556}
-  - {fileID: 1978293789}
-  dineroAyuda: 96000000c80000002c010000f40100008e020000
-  imagenBoton5: {fileID: 1978293790}
-  colorBloqueado: {r: 0, g: 0, b: 0, a: 1}
-  colorDesbloqueado: {r: 1, g: 1, b: 1, a: 1}
-  gameResult: {fileID: 977095565}
-  videosAyuda:
-  - {fileID: 32900000, guid: 614baa076013a7a4586720a0d3c97148, type: 3}
-  - {fileID: 32900000, guid: 88843224ac165e4418c8fdc8d5e6948f, type: 3}
-  - {fileID: 32900000, guid: 68e5bb69b86e46644bce311f0980836a, type: 3}
-  - {fileID: 32900000, guid: 0f7b1555017a6b14aa10e2433a05334a, type: 3}
-  - {fileID: 32900000, guid: 47e4b90f321ce9040aaf75625ecb6d05, type: 3}
-  videoPlayer: {fileID: 714625110}
-  panelVideo: {fileID: 1644042096}
-  isPlaying: 0
 --- !u!224 &154350352
 RectTransform:
   m_ObjectHideFlags: 0
@@ -417,6 +385,37 @@ CanvasRenderer:
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 154350350}
   m_CullTransparentMesh: 1
+--- !u!114 &154350354
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 154350350}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 5a720b9bd7dd2234ea7c7ed2753979dc, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: Assembly-CSharp::RescueSystem
+  botonesAyuda:
+  - {fileID: 780587926}
+  - {fileID: 1701774793}
+  - {fileID: 1555937769}
+  - {fileID: 1257244556}
+  - {fileID: 1978293789}
+  dineroAyuda: 96000000c80000002c010000f40100008e020000
+  imagenBoton5: {fileID: 1978293790}
+  colorBloqueado: {r: 0, g: 0, b: 0, a: 1}
+  colorDesbloqueado: {r: 1, g: 1, b: 1, a: 1}
+  gameResult: {fileID: 977095565}
+  imagenesAyuda:
+  - {fileID: 4554833842124747261, guid: 178da92f9d357dc4ca805ba8baae825c, type: 3}
+  - {fileID: 1477624127643176706, guid: 0b5f60beefe93404a8826198b4d52342, type: 3}
+  - {fileID: -185913456992167061, guid: cf8dbb52185dc9a4db452324b0940842, type: 3}
+  - {fileID: 21300000, guid: ffcd2a3ae502998418d96c5dabbfc652, type: 3}
+  - {fileID: 0}
+  visorImagen: {fileID: 1129500942}
+  panelImagen: {fileID: 714625110}
 --- !u!1 &297462350
 GameObject:
   m_ObjectHideFlags: 0
@@ -859,9 +858,8 @@ GameObject:
   m_Component:
   - component: {fileID: 714625111}
   - component: {fileID: 714625113}
-  - component: {fileID: 714625114}
   m_Layer: 5
-  m_Name: PanelDeVideo
+  m_Name: PanelDeImagen
   m_TagString: Untagged
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
@@ -880,12 +878,13 @@ RectTransform:
   m_ConstrainProportionsScale: 0
   m_Children:
   - {fileID: 1644042100}
+  - {fileID: 1129500940}
   m_Father: {fileID: 27029971}
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
   m_AnchorMin: {x: 0, y: 0}
   m_AnchorMax: {x: 1, y: 1}
-  m_AnchoredPosition: {x: 0, y: 0}
-  m_SizeDelta: {x: 0, y: 0}
+  m_AnchoredPosition: {x: -0.00012207031, y: -0.000061035156}
+  m_SizeDelta: {x: -151.71, y: -85.334}
   m_Pivot: {x: 0.5, y: 0.5}
 --- !u!222 &714625113
 CanvasRenderer:
@@ -895,33 +894,6 @@ CanvasRenderer:
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 714625110}
   m_CullTransparentMesh: 1
---- !u!114 &714625114
-MonoBehaviour:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 714625110}
-  m_Enabled: 1
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: 1344c3c82d62a2a41a3576d8abb8e3ea, type: 3}
-  m_Name: 
-  m_EditorClassIdentifier: UnityEngine.UI::UnityEngine.UI.RawImage
-  m_Material: {fileID: 0}
-  m_Color: {r: 1, g: 1, b: 1, a: 1}
-  m_RaycastTarget: 1
-  m_RaycastPadding: {x: 0, y: 0, z: 0, w: 0}
-  m_Maskable: 1
-  m_OnCullStateChanged:
-    m_PersistentCalls:
-      m_Calls: []
-  m_Texture: {fileID: 8400000, guid: 5fbb04afbc54a7f489b965f371d250eb, type: 2}
-  m_UVRect:
-    serializedVersion: 2
-    x: 0
-    y: 0
-    width: 1
-    height: 1
 --- !u!1 &780587924
 GameObject:
   m_ObjectHideFlags: 0
@@ -1004,7 +976,7 @@ MonoBehaviour:
   m_OnClick:
     m_PersistentCalls:
       m_Calls:
-      - m_Target: {fileID: 154350351}
+      - m_Target: {fileID: 0}
         m_TargetAssemblyTypeName: RescueSystem, Assembly-CSharp
         m_MethodName: UsarAyuda1
         m_Mode: 1
@@ -1326,7 +1298,7 @@ MonoBehaviour:
   probabilidadDeGanar: 0
   dinero: 0
   resultadoAnimator: {fileID: 797334707}
-  rescueSystem: {fileID: 154350351}
+  rescueSystem: {fileID: 154350354}
   jugarButton: {fileID: 1678226618}
 --- !u!4 &977095566
 Transform:
@@ -1480,6 +1452,104 @@ MonoBehaviour:
   m_hasFontAssetChanged: 0
   m_baseMaterial: {fileID: 0}
   m_maskOffset: {x: 0, y: 0, z: 0, w: 0}
+--- !u!1 &1129500939
+GameObject:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  serializedVersion: 6
+  m_Component:
+  - component: {fileID: 1129500940}
+  - component: {fileID: 1129500941}
+  - component: {fileID: 1129500942}
+  - component: {fileID: 1129500943}
+  m_Layer: 5
+  m_Name: VisorImagen
+  m_TagString: Untagged
+  m_Icon: {fileID: 0}
+  m_NavMeshLayer: 0
+  m_StaticEditorFlags: 0
+  m_IsActive: 1
+--- !u!224 &1129500940
+RectTransform:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1129500939}
+  m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
+  m_LocalPosition: {x: 0, y: 0, z: 0}
+  m_LocalScale: {x: 1, y: 1, z: 1}
+  m_ConstrainProportionsScale: 0
+  m_Children: []
+  m_Father: {fileID: 714625111}
+  m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
+  m_AnchorMin: {x: 0.5, y: 0.5}
+  m_AnchorMax: {x: 0.5, y: 0.5}
+  m_AnchoredPosition: {x: 0.0024719, y: 0.0014343}
+  m_SizeDelta: {x: 1920, y: 1080}
+  m_Pivot: {x: 0.5, y: 0.5}
+--- !u!222 &1129500941
+CanvasRenderer:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1129500939}
+  m_CullTransparentMesh: 1
+--- !u!114 &1129500942
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1129500939}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: fe87c0e1cc204ed48ad3b37840f39efc, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: UnityEngine.UI::UnityEngine.UI.Image
+  m_Material: {fileID: 0}
+  m_Color: {r: 1, g: 1, b: 1, a: 1}
+  m_RaycastTarget: 1
+  m_RaycastPadding: {x: 0, y: 0, z: 0, w: 0}
+  m_Maskable: 1
+  m_OnCullStateChanged:
+    m_PersistentCalls:
+      m_Calls: []
+  m_Sprite: {fileID: 4554833842124747261, guid: 178da92f9d357dc4ca805ba8baae825c, type: 3}
+  m_Type: 0
+  m_PreserveAspect: 0
+  m_FillCenter: 1
+  m_FillMethod: 4
+  m_FillAmount: 1
+  m_FillClockwise: 1
+  m_FillOrigin: 0
+  m_UseSpriteMesh: 0
+  m_PixelsPerUnitMultiplier: 1
+--- !u!95 &1129500943
+Animator:
+  serializedVersion: 7
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1129500939}
+  m_Enabled: 1
+  m_Avatar: {fileID: 0}
+  m_Controller: {fileID: 9100000, guid: 36041192fe453d74a9eb292dfa3e3101, type: 2}
+  m_CullingMode: 0
+  m_UpdateMode: 0
+  m_ApplyRootMotion: 0
+  m_LinearVelocityBlending: 0
+  m_StabilizeFeet: 0
+  m_AnimatePhysics: 0
+  m_WarningMessage: 
+  m_HasTransformHierarchy: 1
+  m_AllowConstantClipSamplingOptimization: 1
+  m_KeepAnimatorStateOnDisable: 0
+  m_WriteDefaultValuesOnDisable: 0
 --- !u!1 &1212235445
 GameObject:
   m_ObjectHideFlags: 0
@@ -1700,7 +1770,7 @@ MonoBehaviour:
   m_OnClick:
     m_PersistentCalls:
       m_Calls:
-      - m_Target: {fileID: 154350351}
+      - m_Target: {fileID: 0}
         m_TargetAssemblyTypeName: RescueSystem, Assembly-CSharp
         m_MethodName: UsarAyuda4
         m_Mode: 1
@@ -1912,7 +1982,7 @@ MonoBehaviour:
   m_OnClick:
     m_PersistentCalls:
       m_Calls:
-      - m_Target: {fileID: 154350351}
+      - m_Target: {fileID: 0}
         m_TargetAssemblyTypeName: RescueSystem, Assembly-CSharp
         m_MethodName: UsarAyuda3
         m_Mode: 1
@@ -1975,7 +2045,7 @@ GameObject:
   - component: {fileID: 1644042098}
   - component: {fileID: 1644042097}
   m_Layer: 5
-  m_Name: BotonCerrarVideo
+  m_Name: BotonCerrar
   m_TagString: Untagged
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
@@ -2025,9 +2095,9 @@ MonoBehaviour:
   m_OnClick:
     m_PersistentCalls:
       m_Calls:
-      - m_Target: {fileID: 154350351}
+      - m_Target: {fileID: 154350354}
         m_TargetAssemblyTypeName: RescueSystem, Assembly-CSharp
-        m_MethodName: CerrarVideo
+        m_MethodName: CerrarImagen
         m_Mode: 1
         m_Arguments:
           m_ObjectArgument: {fileID: 0}
@@ -2310,7 +2380,7 @@ MonoBehaviour:
   m_OnClick:
     m_PersistentCalls:
       m_Calls:
-      - m_Target: {fileID: 154350351}
+      - m_Target: {fileID: 0}
         m_TargetAssemblyTypeName: RescueSystem, Assembly-CSharp
         m_MethodName: UsarAyuda2
         m_Mode: 1
@@ -2442,7 +2512,7 @@ MonoBehaviour:
   m_OnClick:
     m_PersistentCalls:
       m_Calls:
-      - m_Target: {fileID: 154350351}
+      - m_Target: {fileID: 0}
         m_TargetAssemblyTypeName: RescueSystem, Assembly-CSharp
         m_MethodName: UsarAyuda5
         m_Mode: 1

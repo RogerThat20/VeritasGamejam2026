@@ -75,7 +75,7 @@ public class GameResult : MonoBehaviour
     {
         dinero -= dineroPorDerrota;
         resultadoTexto.text = "Perdiste";
-        rescueSystem.isPlaying = false;
+        //rescueSystem.isPlaying = false;
         rescueSystem.RevisarAyuda();
         jugarButton.interactable = true;
         jugando = false;

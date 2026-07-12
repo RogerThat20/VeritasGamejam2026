@@ -2,8 +2,7 @@ using System;
 using TMPro;
 using Unity.AppUI.Redux;
 using UnityEngine;
-using UnityEngine.UI;
-using UnityEngine.Video; // Esencial para reproducir videos
+using UnityEngine.UI; // Usamos esto para el componente Image
 
 public class RescueSystem : MonoBehaviour
 {
@@ -22,11 +21,10 @@ public class RescueSystem : MonoBehaviour
     public Color colorDesbloqueado = Color.white;
     public GameResult gameResult;
 
-    [Header("Sistema de Video")]
-    public VideoClip[] videosAyuda = new VideoClip[5]; // Arreglo para los 5 videos distintos
-    public GameObject videoPlayer; // El componente que reproduce el video
-    public GameObject panelVideo; // El panel UI que mostrará el video y el botón de cerrar
-    public bool isPlaying = false;
+    [Header("Sistema de Imágenes")]
+    public Sprite[] imagenesAyuda = new Sprite[5]; // Arreglo para las 5 imágenes distintas
+    public Image visorImagen; // El componente UI que mostrará la imagen en pantalla
+    public GameObject panelImagen; // El panel UI que contiene la imagen y el botón de cerrar
 
     void Start()
     {
@@ -41,12 +39,11 @@ public class RescueSystem : MonoBehaviour
 
         imagenBoton5.color = colorBloqueado;
 
-        // Asegurarnos de que el panel de video empiece apagado al iniciar el juego
-        if (panelVideo != null)
+        // Asegurarnos de que el panel de la imagen empiece apagado al iniciar el juego
+        if (panelImagen != null)
         {
-            panelVideo.SetActive(false);
+            panelImagen.SetActive(false);
         }
-        isPlaying = true;
     }
 
     public void RevisarAyuda()
@@ -71,32 +68,36 @@ public class RescueSystem : MonoBehaviour
             imagenBoton5.color = colorDesbloqueado;
         }
 
-        // Reproducir el video justo en el momento en que se habilita el botón
-        ReproducirVideo(ayudaActual);
+        // Mostrar la imagen justo en el momento en que se habilita el botón
+        MostrarImagen(ayudaActual);
     }
 
-    // Función interna para reproducir el video correspondiente
-    private void ReproducirVideo(int indice)
+    // Función interna para mostrar la imagen correspondiente
+    private void MostrarImagen(int indice)
     {
-        // Validamos que existan las referencias y el video para evitar errores
-        if (videoPlayer != null && panelVideo != null && videosAyuda.Length > indice && videosAyuda[indice] != null && !isPlaying)
+        // Validamos que existan las referencias y el sprite para evitar errores
+        if (visorImagen != null && panelImagen != null && imagenesAyuda.Length > indice && imagenesAyuda[indice] != null)
         {
-             // Asignamos el video distinto
-            panelVideo.SetActive(true); // Encendemos el panel visual
-            videoPlayer.SetActive(true); // Le damos Play
+            visorImagen.sprite = imagenesAyuda[indice]; // Cambiamos la imagen
+            panelImagen.SetActive(true); // Encendemos el panel visual
+
+            // obtenemos el animation controller de este objeto
+            Animator animator = panelImagen.GetComponent<Animator>();
+
+            // configuramos que se ejecute la animacion con el parametro indice
+            animator.SetInteger("Indice", indice);
+
+            // reproducimos la animacion
+            //animator.Play();
         }
     }
 
-    // Esta es la función que el Botón de Cerrar Video va a ejecutar
-    public void CerrarVideo()
+    // Esta es la función que el Botón de Cerrar va a ejecutar
+    public void CerrarImagen()
     {
-        if (videoPlayer != null)
+        if (panelImagen != null)
         {
-            videoPlayer.SetActive(false); // Detenemos la reproducción
-        }
-        if (panelVideo != null)
-        {
-            panelVideo.SetActive(false); // Apagamos el panel
+            panelImagen.SetActive(false); // Apagamos el panel
         }
     }
 
