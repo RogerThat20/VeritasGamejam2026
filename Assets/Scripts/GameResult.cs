@@ -47,12 +47,12 @@ public class GameResult : MonoBehaviour
         if (numero < probabilidadDeGanar)
         {
             resultadoAnimator.Play("Ganar", 0, 0f);
-            Invoke(nameof(FinalizarVictoria), 1f);
+            Invoke(nameof(FinalizarVictoria), 3f);
         }
         else
         {
             resultadoAnimator.Play("Perder", 0, 0f);
-            Invoke(nameof(FinalizarDerrota), 1f);
+            Invoke(nameof(FinalizarDerrota), 3f);
         }
     }
     public void ActualizarDinero()
