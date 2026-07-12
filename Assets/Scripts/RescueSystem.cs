@@ -25,6 +25,7 @@ public class RescueSystem : MonoBehaviour
     public Sprite[] imagenesAyuda = new Sprite[5]; // Arreglo para las 5 imágenes distintas
     public Image visorImagen; // El componente UI que mostrará la imagen en pantalla
     public GameObject panelImagen; // El panel UI que contiene la imagen y el botón de cerrar
+    public Animator animator;
 
     void Start()
     {
@@ -46,6 +47,11 @@ public class RescueSystem : MonoBehaviour
         }
     }
 
+    public void RevisarAyudaDelay()
+    {
+        Invoke("RevisarAyuda", 0.3f);
+    }
+
     public void RevisarAyuda()
     {
         if (gameResult == null)
@@ -57,16 +63,8 @@ public class RescueSystem : MonoBehaviour
         if (ayudaActual >= botonesAyuda.Length)
             return;
 
-        if (ayudaActual < 4)
-        {
-            botonesAyuda[ayudaActual].gameObject.SetActive(true);
-            botonesAyuda[ayudaActual].interactable = true;
-        }
-        else
-        {
-            botonesAyuda[4].interactable = true;
-            imagenBoton5.color = colorDesbloqueado;
-        }
+        botonesAyuda[ayudaActual].gameObject.SetActive(true);
+        botonesAyuda[ayudaActual].interactable = true;
 
         // Mostrar la imagen justo en el momento en que se habilita el botón
         MostrarImagen(ayudaActual);
@@ -76,20 +74,32 @@ public class RescueSystem : MonoBehaviour
     private void MostrarImagen(int indice)
     {
         // Validamos que existan las referencias y el sprite para evitar errores
-        if (visorImagen != null && panelImagen != null && imagenesAyuda.Length > indice && imagenesAyuda[indice] != null)
+        /*if (visorImagen != null 
+            && panelImagen != null 
+            && imagenesAyuda.Length > indice 
+            && imagenesAyuda[indice] != null)
         {
             visorImagen.sprite = imagenesAyuda[indice]; // Cambiamos la imagen
-            panelImagen.SetActive(true); // Encendemos el panel visual
-
-            // obtenemos el animation controller de este objeto
-            Animator animator = panelImagen.GetComponent<Animator>();
-
-            // configuramos que se ejecute la animacion con el parametro indice
+            panelImagen.SetActive(true); 
             animator.SetInteger("Indice", indice);
+        }*/
 
-            // reproducimos la animacion
-            //animator.Play();
-            animator.StartPlayback();
+        visorImagen.sprite = imagenesAyuda[indice]; // Cambiamos la imagen
+        panelImagen.SetActive(true);
+        animator.SetInteger("Indice", indice);
+
+        //ayudaActual++;
+    }
+
+    public void OcultarImagen()
+    {
+        // Validamos que existan las referencias y el sprite para evitar errores
+        if (panelImagen != null)
+        {
+            
+            panelImagen.SetActive(false); // Encendemos el panel visual
+
+            
         }
     }
 
@@ -119,7 +129,7 @@ public class RescueSystem : MonoBehaviour
 
         botonesAyuda[indice].interactable = false;
 
-        if (indice < 4)
+        if (indice < 5)
         {
             botonesAyuda[indice].gameObject.SetActive(false);
         }
@@ -130,6 +140,6 @@ public class RescueSystem : MonoBehaviour
 
         ayudaActual++;
 
-        RevisarAyuda();
+        Debug.Log(ayudaActual);
     }
 }

@@ -59,8 +59,8 @@ public class GameResult : MonoBehaviour
     {
         dineroTexto.text = "Dinero: " + dinero;
 
-        if (rescueSystem != null)
-            rescueSystem.RevisarAyuda();
+        /*if (rescueSystem != null)
+            rescueSystem.RevisarAyuda();*/
     }
     void FinalizarVictoria()
     {
@@ -76,10 +76,10 @@ public class GameResult : MonoBehaviour
         dinero -= dineroPorDerrota;
         resultadoTexto.text = "Perdiste";
         //rescueSystem.isPlaying = false;
-        rescueSystem.RevisarAyuda();
+        rescueSystem.RevisarAyudaDelay();
         jugarButton.interactable = true;
         jugando = false;
-        ActualizarDinero(); 
+        //ActualizarDinero(); 
     }
     
 }
